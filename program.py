@@ -19,7 +19,6 @@ document = "text.txt"
 f = open(document, 'w+')
 
 for i in range(limit_page):
-    print(i)
     file_png = "page"+str(i)+".jpg"
     img = cv.imread(file_png)
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

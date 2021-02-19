@@ -1,0 +1,85 @@
+body {
+  background-color: #292929;
+  color: #fff;
+  font-family: 'Gotham Pro', sans-serif;
+	margin: 0;
+}
+
+.header {
+	padding-top: 50px;
+}
+
+.hero {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+
+.hero-title {
+	font-size: 34px;
+	margin: auto;
+	margin-bottom: 34px;
+	text-transform: uppercase;
+	line-height: normal;
+	letter-spacing: 0.34px;
+	font-weight: 500;
+	font-family: 'Gotham Pro Medium';
+}
+
+.hero-description {
+	font-size: 18px;
+	font-family: "Gotham Pro Light";
+	text-transform: uppercase;
+	letter-spacing: 0.18px;
+	line-height: 1.4;
+	max-width: 590px;
+	margin: auto;
+}
+
+.converter-wrapper {
+	text-align: center;
+	border: 3px solid #ffffff;
+	padding: 33px 35px 30px 35px;
+	margin-top: 27px;
+}
+
+.converter-title {
+	margin-top: 23px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.button {
+	display: inline-block;
+	font-size: 18px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #ff2e55;
+	padding-top: 30px;
+	padding-bottom: 26px;
+	padding-left: 65px;
+	padding-right: 65px;
+	margin-top: 36px;
+	cursor: pointer;
+	bottom: none;
+}
+
+.converter-button,
+.converter-button-download {
+	font-size: 14px;
+	width: 50%;
+	padding-top: 16px;
+	padding-bottom: 13px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.footer {
+	background-color: #1a1a1a;
+	text-align: left;
+}
+.social {
+	font-size: 16px;
+}
+

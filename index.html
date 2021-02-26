@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="website/css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="website/css/style.css">
+  <link rel="stylesheet" href="website/js/main.js">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 
@@ -30,7 +31,7 @@
 
   <section class="hero">
     <div class="container">
-      <h1 class="hero-title">Распознавание текста (OCR)</h1>
+      <h1 class="hero-title" >Распознавание текста (OCR)</h1>
       <p class="hero-description">Преобразование отсканированных документов в редактируемый формат txt</p>
     </div>
   </section>
@@ -39,7 +40,9 @@
     <div class="container">
       <div class="converter-wrapper">
         <h3 class="converter-title">Загрузите файлы для распознавания или перетащите их на эту страницу</h3>
+        <input type="file" id="button converter-button">
         <button class="button converter-button">Загрузить</button>
+        <span id="upload-text"></span>
         <button class="button converter-button-download">Скачать</button>
       </div>
 

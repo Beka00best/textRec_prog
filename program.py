@@ -6,7 +6,7 @@ import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path
 
-PDF = "PDF/image.pdf"
+PDF = "PDF/d.pdf"
 images = convert_from_path(PDF)
 img_counter = 1
 
@@ -25,11 +25,11 @@ for i in range(limit_page):
 
     # ret, threshold_image = cv.threshold(gray, 0, 255, cv.THRESH_BINARY)
     # ret2, threshold_image2 = cv.threshold(gray, 0, 255, cv.THRESH_OTSU)
-    threshold_image3 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
+    # threshold_image3 = cv.adaptiveThreshold(gray, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
     # medianBlur = cv2.medianBlur(gray, 5)
 
     file = "ch.png"
-    cv.imwrite(file, threshold_image3)
+    cv.imwrite(file, gray)
 
     text = pytesseract.image_to_string(Image.open(file))
     os.remove(file)

@@ -65,14 +65,23 @@ body {
 	bottom: none;
 }
 
-.converter-button,
+#converter-button,
 .converter-button-download {
+	/* display: inline-flex; */
 	font-size: 14px;
 	width: 50%;
 	padding-top: 16px;
 	padding-bottom: 13px;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+#upload-text {
+	display: block;
+	padding-top: 14px;
+	font-size: 14px;
+	color: #ffffff;
+	word-break:break-all;
 }
 
 .footer {

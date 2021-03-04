@@ -1,7 +1,7 @@
 window.onload = () => {
 
-  const uploadFile = document.getElementById("button converter-button");
-  const uploadBtn = document.getElementById("button converter-button");
+  const uploadFile = document.getElementById("upload-file");
+  const uploadBtn = document.getElementById("converter-button");
   const uploadText = document.getElementById("upload-text");
 
   uploadBtn.addEventListener("click", function() {
@@ -10,7 +10,7 @@ window.onload = () => {
 
   uploadFile.addEventListener("change", function() {
     if(uploadFile.value) {
-      uploadText.innerText = uploadFile.value;
+      uploadText.innerText = uploadFile.value.replace(/C:\\fakepath\\/, '');
     } else {
       uploadText.innerText = "Файл не выбран";
     }

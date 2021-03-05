@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import cv2 as cv
 import os
 import pytesseract
@@ -15,7 +14,7 @@ for i in range(len(images)):
     img_counter = img_counter + 1
 
 limit_page = img_counter - 1
-document = "text.txt"
+document = "/ready/text.txt"
 f = open(document, 'w+')
 
 for i in range(limit_page):

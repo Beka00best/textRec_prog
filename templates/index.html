@@ -39,11 +39,19 @@
     <div class="container">
       <div class="converter-wrapper">
         <h3 class="converter-title">Загрузите файлы для распознавания или перетащите их на эту страницу</h3>
+        {% if args["method"] == "POST" %}
+          {% if args["file_size_error"] %}
+            <h1>Размер файла большой (больше 10мб)</h1>
+          {% elif args["file_fail"] %}
+            <h1>Неправильный тип файла (загрузите PDF)</h1>
+          {% else %}
+            <h1>Файл успешно загружен.</h1>
+          {% endif %}
+        {% endif %}
         <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
-          <input type="file" id="upload-file" hidden="hidden">
+          <input class="button converter-button-download" type="file" name="file">
           <button class="button" id="converter-button">Загрузить</button>
         </form>
-        <span id="upload-text">Файл не загружен</span>
         <button class="button converter-button-download">Скачать</button>
       </div>
 
@@ -66,7 +74,7 @@
     </div>
     <!-- /.container -->
   </footer>
-  <script src="../static/js/main.js"></script>
+  <!-- <script src="../static/js/main.js"></script> -->
 </body>
 
 </html>

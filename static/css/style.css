@@ -76,7 +76,22 @@ body {
 	padding-right: 10px;
 }
 
-#upload-text {
+.btn-btn {
+	/* display: inline-flex; */
+	display: block;
+	position: absolute;
+	font-size: 14px;
+	width: 50%;
+	padding-top: 16px;
+	padding-bottom: 13px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.upload-text {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
 	display: block;
 	padding-top: 14px;
 	font-size: 14px;

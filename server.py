@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 import os
 import subprocess
@@ -6,10 +6,11 @@ import subprocess
 MAX_FILE_SIZE = 1024 * 1024 * 10 + 1
 UPLOAD_FOLDER = 'uploads'
 READY_FOLDER = 'ready'
-READY_FILE = 'test.txt'
-PATH = "/ready/test.txt"
+READY_FILE = 'text.txt'
+PATH = "ready/text.txt"
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['READY_FOLDER'] = READY_FOLDER
 
 @app.route("/", methods=["POST", "GET"])
 def upload():
@@ -21,28 +22,28 @@ def upload():
             args["file_size_error"] = len(file_bytes) == MAX_FILE_SIZE
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            os.system('python3 program.py')
         else:
             args["file_fail"] = True
         args["method"] = "POST"
     return render_template("index.html", args=args)
 
-# @app.route("/", methods=["POST", "GET"])
-# def processing():
-#     args = {"method": "GET"}
-#     notepad = subprocess.Popen('program.py')
-#     notepad.wait()
-#     return render_template("index.html", args=args)
-
-# @app.route("/", methods=["POST", "GET"])
-# def send(filename):
-#     args = {"method": "GET"}
-#     if request.method == "POST":
-#         if PATH.is_file():
-#             send_from_directory(READY_FOLDER ,READY_FILE)
-#         else:
-#             args["no_file"] = True
-#         args["method"] = "POST"
-#     return render_template("index.html", args=args)
+@app.route("/<folder>/<filename>", methods=["POST", "GET"])
+def download(folder, filename):
+    args = {"method": "GET"}
+    if request.method == "GET":
+        if os.path.exists(PATH):
+            return send_file(folder + '/' + filename, as_attachment=True)
+        else:
+            args["no_file"] = True
+        args["method"] = "GET"
+    return render_template("index.html", args=args)
+# @app.after_request
+# def remove_file(responce):
+#     try:
+#     except Exception as error:
+#         app.logger.error("Error removing or closing downloaded file handle", error)
+#     return responce
 
 if __name__ == "__main__":
     app.run(debug=True)

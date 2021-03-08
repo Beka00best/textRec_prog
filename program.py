@@ -5,7 +5,8 @@ import pytesseract
 from PIL import Image
 from pdf2image import convert_from_path
 
-PDF = "PDF/d.pdf"
+file = os.listdir('PDF')
+PDF = 'PDF/' + file[0]
 images = convert_from_path(PDF)
 img_counter = 1
 
@@ -14,9 +15,8 @@ for i in range(len(images)):
     img_counter = img_counter + 1
 
 limit_page = img_counter - 1
-document = "/ready/text.txt"
-f = open(document, 'w+')
-
+document = "ready/text.txt"
+    
 for i in range(limit_page):
     file_png = "page"+str(i)+".jpg"
     img = cv.imread(file_png)
@@ -33,7 +33,8 @@ for i in range(limit_page):
     text = pytesseract.image_to_string(Image.open(file))
     os.remove(file)
     os.remove(file_png)
-    f.write(text)
+    with open(document, 'a') as f:
+        f.write(text)
     # print(text)
 
     # cv.imshow('original', img)

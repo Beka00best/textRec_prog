@@ -6,7 +6,7 @@ from PIL import Image
 from pdf2image import convert_from_path
 
 file = os.listdir('PDF')
-PDF = 'PDF/' + file[0]
+PDF = 'PDF/' + file[-1]
 images = convert_from_path(PDF)
 img_counter = 1
 
@@ -16,6 +16,7 @@ for i in range(len(images)):
 
 limit_page = img_counter - 1
 document = "ready/text.txt"
+
     
 for i in range(limit_page):
     file_png = "page"+str(i)+".jpg"

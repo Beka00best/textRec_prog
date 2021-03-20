@@ -10,18 +10,14 @@ lst_text = text.split()
 lst_ocr = ocr.split()
 
 # column = max(len(lst_text), len(lst_ocr)) 
-
-
-if len(lst_text) == len(lst_ocr):
-  length = len(lst_text)
-else:
-  length = min(len(lst_text), len(lst_ocr))
+length = min(len(lst_text), len(lst_ocr))
   
 table = document.add_table(rows=3, cols=2)
 for i in range(0, 3, 3):
   table.cell(i,0).text = 'Text'
   table.cell(i + 1,0).text = 'OCR'
   table.cell(i + 2,0).text = 'Res'
+  
 
 table.cell(0,1).paragraphs[0].add_run(text)
 table.cell(1,1).paragraphs[0].add_run(ocr)
@@ -29,14 +25,11 @@ table.cell(1,1).paragraphs[0].add_run(ocr)
 table.columns[0].width = Inches(1.0)
 table.columns[1].width = Inches(5.5)
 
-
+count = 0
 for j in range(length):
   count = 0
   length_text, length_textOCR = len(lst_text[j]), len(lst_ocr[j])
-  if length_text == length_textOCR:
-    lengthT = length_text
-  else:
-    lengthT = min(length_text, length_textOCR)
+  lengthT = min(length_text, length_textOCR)
   for i in range(lengthT):
     count = i
     run = table.cell(2,1).paragraphs[0].add_run(lst_ocr[j][i])
@@ -59,8 +52,20 @@ for j in range(length):
       count += 1
       run = table.cell(2,1).paragraphs[0].add_run(lst_ocr[j][count])
       run.font.color.rgb = RGBColor(255, 0, 0)
-
   run = table.cell(2,1).paragraphs[0].add_run(' ')
+
+while (length < len(lst_text)):
+  run = table.cell(2,1).paragraphs[0].add_run('***')
+  run.font.color.rgb = RGBColor(255, 0, 0)
+  run = table.cell(2,1).paragraphs[0].add_run(' ')
+  length += 1
+
+while (length < len(lst_ocr)):
+  run = table.cell(2,1).paragraphs[0].add_run(lst_ocr[length])
+  run.font.color.rgb = RGBColor(255, 0, 0)
+  run = table.cell(2,1).paragraphs[0].add_run(' ')
+  length += 1
+
 document.save('demo1.docx')   
 
 # for i in range(step):

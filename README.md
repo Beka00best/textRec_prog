@@ -16,22 +16,22 @@ The problem is that OCR is slow, so we don't want to use OCR on the whole docume
 1. [Select text using ocr](#Select-text-using-ocr) :white_check_mark: 
 2. [Select a text layer](#Select-a-text-layer) :white_check_mark: 
 3. [Compare them (try to match and output mismatched strings) is the minimum](#Compare-them-(try-to-match-and-output-mismatched-strings)-is-the-minimum) :white_check_mark: 
-4. [Write the launch instructions, put everything on github](#Write-the-launch-instructions,-put-everything-on-github) :white_check_mark: 
+4. Write the launch instructions, put everything on github :white_check_mark: 
 5. [Learn how to display diff beautifully](#Learn-how-to-display-diff-beautifully) :white_check_mark: 
 6. [Wrap it all in a web service](#Wrap-it-all-in-a-web-service) :white_check_mark: 
 7. [Learn how to pack it all in a container](#Learn-how-to-pack-it-all-in-a-container) :white_check_mark: 
 
-### Select text using ocr
+### Select text using ocr :white_check_mark: 
 For the convenience of the pdf file, I divided it into an image using the pdf2image library. And then selected the text with OCR using libraries such as [Tesseract](https://github.com/tesseract-ocr/tesseract), [OpenCV](https://github.com/opencv/opencv), [EasyOcr](https://github.com/JaidedAI/EasyOCR). OpenCV is needed for processing images that need to be pre-processed before we can pass the image to the OCR library. But according to the task, we should not do this because we just have a text.(Since I spent a lot of time studying the different noises in the images. I left this function but not applying it). Next, we have two very powerful tools in the face of Tesseract and EasyOcr. I used EasyOcr because for some reason Tesseract couldn't recognize the table.(But just like in the previous case, I wrote and left the function with Tesseract). Then all the recognized text is saved to a file.
-### Select a text layer
+### Select a text layer :white_check_mark: 
 I learned about the [PyMuPDF](https://github.com/pymupdf/PyMuPDF) library, it has more functionality than the libraries that I used before. Using this library, I was able to select a text layer
-### Compare them (try to match and output mismatched strings) is the minimum
+### Compare them (try to match and output mismatched strings) is the minimum :white_check_mark: 
 The comparison of two text selections and OCR goes something like this. To begin with, I go through each page, then through the text. First, I select the text of the minimum length from the text layer and look at the OCR, if there are more words in the OCR, then ***is displayed in red. Next, I look at the words and letters, if as in OCR, then green, otherwise red. In length, if the word is longer in the text layer, then I write red OCR, otherwise red *.
-### Learn how to display diff beautifully
+### Learn how to display diff beautifully :white_check_mark: 
 [:arrow_up:Compare them (try to match and output mismatched strings) is the minimum](#Compare-them-(try-to-match-and-output-mismatched-strings)-is-the-minimum)
-### Wrap it all in a web service
+### Wrap it all in a web service :white_check_mark: 
 The site is written in html and CSS.Located  in [index.html](#https://github.com/Beka00best/textRec_prog/blob/main/templates/index.html)
-### Learn how to pack it all in a container
+### Learn how to pack it all in a container :white_check_mark: 
 The project is wrapped in docker
 ## Download
 Install the dependencies

@@ -13,7 +13,7 @@ This happens quite often, we want to understand whether OCR is needed or whether
 The problem is that OCR is slow, so we don't want to use OCR on the whole document, but only part of it.
 
 ## Stages:
-1. [Select text using ocr](#Select-text-using-ocr) :white_check_mark: 
+1. [Select text using ocr](#Select-text-using-ocr-:white_check_mark:) :white_check_mark: 
 2. [Select a text layer](#Select-a-text-layer) :white_check_mark: 
 3. [Compare them (try to match and output mismatched strings) is the minimum](#Compare-them-(try-to-match-and-output-mismatched-strings)-is-the-minimum) :white_check_mark: 
 4. Write the launch instructions, put everything on github :white_check_mark: 

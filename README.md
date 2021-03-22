@@ -28,7 +28,7 @@ I learned about the [PyMuPDF](https://github.com/pymupdf/PyMuPDF) library, it ha
 ### 3.Compare them (try to match and output mismatched strings) is the minimum
 The comparison of two text selections and OCR goes something like this. To begin with, I go through each page, then through the text. First, I select the text of the minimum length from the text layer and look at the OCR, if there are more words in the OCR, then ***is displayed in red. Next, I look at the words and letters, if as in OCR, then green, otherwise red. In length, if the word is longer in the text layer, then I write red OCR, otherwise red *.
 ### 5.Learn how to display diff beautifully
-[:arrow_up:3.Compare them (try to match and output mismatched strings) is the minimum](#3.Compare them (try to match and output mismatched strings) is the minimum)
+[:arrow_up:3.Compare them (try to match and output mismatched strings) is the minimum](#3.Compare-them-(try-to-match-and-output-mismatched-strings)-is-the-minimum)
 ### 6.Wrap it all in a web service
 The site is written in html and CSS.Located  in [index.html](#https://github.com/Beka00best/textRec_prog/blob/main/templates/index.html)
 ### 7.Learn how to pack it all in a container

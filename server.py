@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, send_file
 from werkzeug.utils import secure_filename
 import os
-import subprocess
 
 MAX_FILE_SIZE = 1024 * 1024 * 10 + 1
 UPLOAD_FOLDER = 'uploads'
@@ -14,18 +13,25 @@ PATH3 = "ready/RESULT.doc"
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['READY_FOLDER'] = READY_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = MAX_FILE_SIZE
 
 @app.route("/", methods=["POST", "GET"])
 def upload():
     args = {"method": "GET"}
     if request.method == "POST":
-        file = request.files["file"]
+        file = request.files['file']
         if file and file.filename.rsplit('.', 1)[1].lower() in ['pdf']:
-            file_bytes = file.read(MAX_FILE_SIZE)
-            args["file_size_error"] = len(file_bytes) == MAX_FILE_SIZE
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            os.system('python3 program.py')
+            file_bytes = os.stat(UPLOAD_FOLDER + '/' + filename).st_size
+            if file_bytes >= MAX_FILE_SIZE:
+                args["file_size_error"] = True
+                os.remove(UPLOAD_FOLDER + '/' + filename)
+                return render_template("index.html", args=args)
+            else:
+                args["file_size_error"] = False
+            os.system('python3 mainprog.py')
+            os.remove(UPLOAD_FOLDER + '/' + filename)
         else:
             args["file_fail"] = True
         args["method"] = "POST"
@@ -41,12 +47,6 @@ def download(folder, filename):
             args["no_file"] = True
         args["method"] = "GET"
     return render_template("index.html", args=args)
-# @app.after_request
-# def remove_file(responce):
-#     try:
-#     except Exception as error:
-#         app.logger.error("Error removing or closing downloaded file handle", error)
-#     return responce
 
 if __name__ == "__main__":
     app.run(debug=True)

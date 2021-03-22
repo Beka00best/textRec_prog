@@ -123,8 +123,8 @@ def makeRESULT(lst_text, lst_ocr, table, length):
 
 
 
-file = os.listdir('PDF')
-PDF = 'PDF/' + file[1]
+file = os.listdir('uploads')
+PDF = 'uploads/' + file[0]
 pdfDocument = fitz.open(PDF)
 document = Document()
 pageNum = pdfDocument.pageCount

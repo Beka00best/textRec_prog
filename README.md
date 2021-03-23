@@ -49,25 +49,27 @@ docker images
 ```
 ### Run
 ```sh
-docker run --rm --name server -p 5000:5000 prog
+docker run --rm --name web -p 8080:8080 prog
 ```
 ### Clean
 ```sh
 docker rmi -f $(docker images -a -q)
 ```
 
-
 ### Other way
-If you encounter problems with Docker, you can download it in a different way. You need to have a Linux system. In the terminal, enter the following commands:
-
+If you encounter problems with Docker, you can download it in a different way. You need to have a Linux system. 
+1. You need python3
+2. You need pip
+In the terminal, enter the following commands:
 ```sh
-Напишу потом
+pip install -r requirements.txt
+python3 server.py
 ```
 
 ### How use website
 After starting the server.py write in the browser:
 ```sh
-http://localhost:5000/
+http://localhost:8080/
 ```
 
 You will be taken to this page:

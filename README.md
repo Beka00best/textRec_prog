@@ -47,6 +47,10 @@ Viewing images
 ```sh
 docker images
 ```
+### Run
+```sh
+docker run --name web -p 8080:8080 prog
+```
 ### Other way
 If you encounter problems with Docker, you can download it in a different way. You need to have a Linux system. 
 1. You need python3
@@ -68,10 +72,7 @@ You will be taken to this page:
 ![Image alt](https://github.com/Beka00best/textRec_prog/blob/main/static/img/01.png)
 ***
 Then follow the instructions on the website
-### Run
-```sh
-docker run --name web -p 8080:8080 prog
-```
+
 ### Clean
 Delete all images
 ```sh

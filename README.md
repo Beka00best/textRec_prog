@@ -49,11 +49,20 @@ docker images
 ```
 ### Run
 ```sh
-docker run --rm --name web -p 8080:8080 prog
+docker run --name web -p 8080:8080 prog
 ```
 ### Clean
+Delete all images
 ```sh
 docker rmi -f $(docker images -a -q)
+```
+Stop all containers
+```sh
+docker stop $(docker ps -a -q)
+```
+Delete all containers
+```sh
+docker rm $(docker ps -a -f status=exited -q)
 ```
 
 ### Other way

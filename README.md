@@ -58,6 +58,8 @@ If you encounter problems with Docker, you can download it in a different way. Y
 In the terminal, enter the following commands:
 ```sh
 pip install -r requirements.txt
+mkdir ready
+mkdir uploads
 python3 server.py
 ```
 

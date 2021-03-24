@@ -19,10 +19,10 @@ ADD requirements.txt .
 RUN python3.6 -m pip install pip --upgrade \
     && pip3.6 install -r requirements.txt
 
-COPY ready /ready
+RUN mkdir -p /ready
 COPY static /static
 COPY templates /templates
-COPY uploads /uploads
+RUN mkdir -p /uploads
 COPY mainprog.py /
 COPY server.py /
 
